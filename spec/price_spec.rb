@@ -15,7 +15,7 @@ describe Price do
     order.clock_number('WNP/SWCL001/010')
     order.standard_delivery_companies('Disney', 'Discovery', 'Viacom')
     order.express_delivery_companies('Horse & County')
-    expect(price(order)).to eq 50
+    expect(price_calc(order)).to eq 50
   end
 
 end
