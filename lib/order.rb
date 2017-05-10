@@ -11,4 +11,8 @@ class Order
     @clock = "#{number}"
   end
 
+  def standard_delivery_companies(*args)
+    @standard_del << args
+  end
+
 end
