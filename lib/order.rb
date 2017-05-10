@@ -6,4 +6,9 @@ class Order
     @standard_del = []
     @express_del = []
   end
+
+  def clock_number(number)
+    @clock = "#{number}"
+  end
+
 end
