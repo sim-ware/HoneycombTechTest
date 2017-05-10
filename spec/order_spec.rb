@@ -11,7 +11,8 @@ describe Order do
 
   it 'stores a string for the "Clock" number' do
     order = Order.new
-    
+    order.clock_number('WNP/SWCL001/010')
+    expect(order.clock).to eq 'WNP/SWCL001/010'
   end
 
 end
