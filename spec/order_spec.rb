@@ -21,10 +21,10 @@ describe Order do
     expect(order.standard_del).to eq [['Disney', 'Discovery', 'Viacom']]
   end
 
-  # it 'stores a Array for "express_del" Companies' do
-  #   order = Order.new
-  #   order.clock_number('WNP/SWCL001/010')
-  #   expect(order.clock).to eq 'WNP/SWCL001/010'
-  # end
+  it 'stores a Array for "express_del" Companies' do
+    order = Order.new
+    order.express_delivery_companies('Horse & County')
+    expect(order.express_del).to eq [['Horse & County']]
+  end
 
 end

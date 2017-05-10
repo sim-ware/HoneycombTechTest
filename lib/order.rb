@@ -15,4 +15,8 @@ class Order
     @standard_del << args
   end
 
+  def express_delivery_companies(*args)
+    @express_del << args
+  end
+
 end
