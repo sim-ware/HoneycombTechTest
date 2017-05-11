@@ -93,8 +93,10 @@ Enter the following commands in your terminal to download the program:
 > o.express_delivery_companies('Horse & County')
  => ["Horse & County"]
 > o
+
  => #<Order:0x007fe70d10f288 @clock="WNP/SWCL001/010", @standard_del=["Disney", "Discovery", "Viacom"], @express_del=["Horse & County"], @price=0, @discount_price=0>  
 ```
+- 'o' is an Order with the clock id 'WNP/SWCL001/010', the companies "Disney", "Discovery", "Viacom" for Standard Delivery, and the companies "Horse & County" for Express Delivery
 
 ```
 > bc.deposit("01/01/2012", 100)
