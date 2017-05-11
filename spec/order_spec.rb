@@ -20,7 +20,6 @@ describe Order do
 
   describe '#clock_number'do
     it 'stores a string for the "Clock" number' do
-      subject = Order.new
       subject.clock_number('WNP/SWCL001/010')
       expect(subject.clock).to eq 'WNP/SWCL001/010'
     end
@@ -28,7 +27,6 @@ describe Order do
 
   describe '#standard_delivery_companies' do
     it 'stores an Array for "standard_del" Companies' do
-      subject = Order.new
       subject.standard_delivery_companies('Disney', 'Discovery', 'Viacom')
       expect(subject.standard_del).to eq ['Disney', 'Discovery', 'Viacom']
     end
@@ -36,7 +34,6 @@ describe Order do
 
   describe '#express_delivery_companies' do
     it 'stores a Array for "express_del" Companies' do
-      subject = Order.new
       subject.express_delivery_companies('Horse & County')
       expect(subject.express_del).to eq ['Horse & County']
     end
