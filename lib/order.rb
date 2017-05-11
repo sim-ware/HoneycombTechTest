@@ -1,12 +1,13 @@
 class Order
-  attr_reader :clock, :standard_del, :express_del, :price
-
+  attr_reader :clock, :standard_del, :express_del, :price, :std
 
   def initialize
     @clock = ''
     @standard_del = []
     @express_del = []
     @price = 0
+    @std = 10
+    @expr = 20
   end
 
   def clock_number(number)
@@ -24,8 +25,8 @@ class Order
   end
 
   def pricing
-    a = @standard_del.length * 10 # STORE
-    b = @express_del.length * 20 # ELSEWHERE
+    a = @standard_del.length * @std # STORE
+    b = @express_del.length * @expr # ELSEWHERE
     @price = a + b
   end
 

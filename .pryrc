@@ -9,4 +9,4 @@ x.pricing
 y = Order.new
 y.clock_number('')
 y.express_delivery_companies('Disney', 'Discovery', 'Viacom')
-y.pricing
+# y.pricing
