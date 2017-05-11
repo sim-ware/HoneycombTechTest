@@ -7,6 +7,6 @@ x.express_delivery_companies('Horse & County')
 x.pricing
 
 y = Order.new
-y.clock_number('')
+y.clock_number('ZDW/EOW005/010')
 y.express_delivery_companies('Disney', 'Discovery', 'Viacom')
 # y.pricing

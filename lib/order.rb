@@ -26,17 +26,21 @@ class Order
   end
 
   def pricing
-    a = @standard_del.length * @std # STORE
-    b = @express_del.length * @expr # ELSEWHERE
+    a = @standard_del.length * @std
+    b = @express_del.length * @expr
     @price = a + b
   end
 
   def discounter_a
     @expr = 15 if @express_del.length >= 2
+    a = @standard_del.length * @std
+    b = @express_del.length * @expr
+    @discount_price = a + b
   end
 
   def discounter_b
-    @discount_price = @price * 0.9 if @price > 30
+    #line of code that checks if discount already exists
+    @discount_price = @price * 0.9 if @price > 30 # && @discount_price != 0
   end
 
   # @expr = 15 if @express_del.length >= 2
