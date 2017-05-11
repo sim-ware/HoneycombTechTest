@@ -26,14 +26,14 @@ describe Order do
   end
 
   describe '#standard_delivery_companies' do
-    it 'stores an Array for "standard_del" Companies' do
+    it 'stores an Array of Companies requesting Standard Delivery' do
       subject.standard_delivery_companies('Disney', 'Discovery', 'Viacom')
       expect(subject.standard_del).to eq ['Disney', 'Discovery', 'Viacom']
     end
   end
 
   describe '#express_delivery_companies' do
-    it 'stores a Array for "express_del" Companies' do
+    it 'stores a Array of Companies requesting Express Delivery' do
       subject.express_delivery_companies('Horse & County')
       expect(subject.express_del).to eq ['Horse & County']
     end
