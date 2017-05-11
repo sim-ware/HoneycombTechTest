@@ -27,4 +27,12 @@ describe Order do
     expect(order.express_del).to eq ['Horse & County']
   end
 
+  it '' do
+    order = Order.new
+    order.standard_delivery_companies('Disney', 'Discovery', 'Viacom')
+    order.express_delivery_companies('Horse & County')
+    order.pricing
+    expect(order.price).to eq 50
+  end
+
 end
