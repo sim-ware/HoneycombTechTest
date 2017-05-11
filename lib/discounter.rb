@@ -1,5 +1,4 @@
 class Discounter
-  attr_accessor :expr
 
   def initialize
     @expr = 20
@@ -7,7 +6,7 @@ class Discounter
 
   def discounter_a(order)
     @expr = 15 if order.express_del.length >= 2
-    a = order.standard_del.length * 10 
+    a = order.standard_del.length * 10
     b = order.express_del.length * @expr
     order.discount_price = a + b
   end
