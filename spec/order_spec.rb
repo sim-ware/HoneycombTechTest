@@ -2,6 +2,7 @@ require 'order'
 
 describe Order do
 
+
   it 'initialises with empty attributes' do
     order = Order.new
     expect(order.clock).to eq ''
@@ -27,12 +28,21 @@ describe Order do
     expect(order.express_del).to eq ['Horse & County']
   end
 
-  it '' do
+  it 'calculates the Price of an Order' do
     order = Order.new
     order.standard_delivery_companies('Disney', 'Discovery', 'Viacom')
     order.express_delivery_companies('Horse & County')
     order.pricing
     expect(order.price).to eq 50
+  end
+
+  it 'discounts the Price of an Order' do
+    order = Order.new
+    order.standard_delivery_companies('Disney', 'Discovery', 'Viacom')
+    order.express_delivery_companies('Horse & County')
+    order.pricing
+    expect(order.price).to eq 50
+    expect(order.discount_price).to eq 45
   end
 
 end

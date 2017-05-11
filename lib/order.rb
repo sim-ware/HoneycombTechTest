@@ -6,6 +6,7 @@ class Order
     @standard_del = []
     @express_del = []
     @price = 0
+    @discount_price = 0
     @std = 10
     @expr = 20
   end
@@ -29,5 +30,19 @@ class Order
     b = @express_del.length * @expr # ELSEWHERE
     @price = a + b
   end
+
+  def discounter_a
+    @expr = 15 if @express_del.length >= 2
+  end
+
+  def discounter_b
+    @discount_price = @price * 0.9 if @price > 30
+  end
+
+  # @expr = 15 if @express_del.length >= 2
+  # @price = @price * 0.9 if @price > 30
+
+  # return "Landed" if plane.landed == true
+  # return "In the air" if plane.landed == false
 
 end
