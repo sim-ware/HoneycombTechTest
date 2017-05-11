@@ -1,5 +1,5 @@
 class Order
-  attr_reader :clock, :standard_del, :express_del, :price, :std
+  attr_reader :clock, :standard_del, :express_del, :price, :discount_price, :std, :expr
 
   def initialize
     @clock = ''
@@ -41,10 +41,6 @@ class Order
   def discounter_b
     @discount_price = @price * 0.9 if @price > 30 && @discount_price == 0
     @discount_price = @discount_price * 0.9 if @price > 30 && @discount_price != 0
-  end
-
-  def show_discount
-    @discount_price
   end
 
 end

@@ -45,7 +45,7 @@ describe Order do
     x.discounter_a
     x.discounter_b
     expect(x.price).to eq 50
-    expect(x.show_discount).to eq 45
+    expect(x.discount_price).to eq 45
   end
 
   it 'discounts the Price of the Second Example' do
@@ -56,7 +56,7 @@ describe Order do
     y.discounter_a
     y.discounter_b
     expect(y.price).to eq 60
-    expect(y.show_discount).to eq 40.5
+    expect(y.discount_price).to eq 40.5
   end
 
 end
