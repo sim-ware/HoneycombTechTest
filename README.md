@@ -96,33 +96,24 @@ Enter the following commands in your terminal to download the program:
 
  => #<Order:0x007fe70d10f288 @clock="WNP/SWCL001/010", @standard_del=["Disney", "Discovery", "Viacom"], @express_del=["Horse & County"], @price=0, @discount_price=0>  
 ```
-- 'o' is an Order with the clock id 'WNP/SWCL001/010', the companies "Disney", "Discovery", "Viacom" for Standard Delivery, and the companies "Horse & County" for Express Delivery
+- 'o' is an Order with the clock id 'WNP/SWCL001/010', the companies "Disney", "Discovery", "Viacom" for Standard Delivery, and the companies "Horse & County" for Express Delivery.
 
 ```
-> bc.deposit("01/01/2012", 100)
- => [{:date=>"01/01/2012", :credit=>100, :debit=>0, :balance=>100}]
+> p = Pricer.new
+ => #<Pricer:0x007f903c217d60>
+>p.pricing(o)
+ => 50
+> o.price
+ => 50
 ```
+- 'p' is a Pricer Object that calculates the unDiscounted price of the order. In this example, the price is 50.
 
 ```
-> bc.withdraw("02/01/2012", 10)
- => [{:date=>"01/01/2012", :credit=>100, :debit=>0, :balance=>100}, {:date=>"02/01/2012", :credit=>0, :debit=>10, :balance=>90}]
+> d = Discounter.new
+ => #<Discounter:0x007f903c1fd0c8 @expr=20>
+> d.discounter_a(o)
+ => 50
+> d.discounter_b(o)
+ => 45.0  
 ```
-
-```
-> bc.getStatement
- date      | credit | debit | balance
---------------------------------------
-01/01/2012 |   100   |  0  |  100
-02/01/2012 |   0   |  10  |  90
-```
-
-NOTE: The following commands will cause the program to exit with the message:
-"Withdrawal denied: insufficient funds"
-`bc = BankAccount.new`
-`bc.withdraw("02/01/2012", 10)`
-
-## Running tests
-
-Use the command `rspec`to run tests
-
-![RSpec tests](rspec.png)
+- 'd' is a Discounter Object that has a method per Discount. It runs the first Promotion and sees if it can discount the price (in this case not). It then applies the second Promotion, and the price is discounted from 50, to 45.
