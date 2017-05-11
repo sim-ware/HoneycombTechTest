@@ -55,26 +55,25 @@ Based on the both Discounts applied, the following examples should be valid:
 
 ## User Stories
 ```
-As a user
-So that I can keep my money somewhere safe
-I'd like to open a bank account
+As a Sales Team Member
+So that I can give a client a quote
+I'd like to see the price of an order
 ```
 ```
 As a user
-So that I know how much I can spend this month
-I'd like to see my account balance
+So that I can offer a client a Discounted quote
+I'd like to see the Discounted Price of an order
 ```
 
 # Bank practice tech test
 
 This is a ruby program that can be run in irb or pry, which has the following
 functionality developed using TDD and using OO principles:
-(See Specification below for more details).
 
 ## Getting started
 Enter the following commands in your terminal to download the program:
-- `git clone https://github.com/shezdev/bank_tech_test.git`
-- cd into the bank_tech_test directory
+- `git clone https://github.com/sim-ware/HoneycombTechTest.git`
+- cd into the HoneycombTechTest directory
 - Please run `bundle` to install the necessary ruby `gemfile` dependencies
 
 ## Usage
@@ -82,10 +81,21 @@ Enter the following commands in your terminal to download the program:
 - Alternatively, open `irb` and enter the following commands:
 
 ```
-> bc = BankAccount.new
+> o = Order.new
+ => #<Order:0x007fe70d10f288 @clock="", @standard_del=[], @express_del=[], @price=0, @discount_price=0>
 
- => #<BankAccount:0x007fac528b0f78 @balance=0, @log=#<TransactionLog:0x007fac528b0f50 @transactions=[]>>
+> o.clock_number('WNP/SWCL001/010')
+ => "WNP/SWCL001/010"
+
+>o.standard_delivery_companies('Disney', 'Discovery', 'Viacom')
+ => ["Disney", "Discovery", "Viacom"]
+
+> o.express_delivery_companies('Horse & County')
+ => ["Horse & County"]
+> o
+ => #<Order:0x007fe70d10f288 @clock="WNP/SWCL001/010", @standard_del=["Disney", "Discovery", "Viacom"], @express_del=["Horse & County"], @price=0, @discount_price=0>  
 ```
+
 ```
 > bc.deposit("01/01/2012", 100)
  => [{:date=>"01/01/2012", :credit=>100, :debit=>0, :balance=>100}]
