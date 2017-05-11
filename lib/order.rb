@@ -39,14 +39,8 @@ class Order
   end
 
   def discounter_b
-    #line of code that checks if discount already exists
-    @discount_price = @price * 0.9 if @price > 30 # && @discount_price != 0
+    @discount_price = @price * 0.9 if @price > 30 && @discount_price == 0
+    @discount_price = @discount_price * 0.9 if @price > 30 && @discount_price != 0
   end
-
-  # @expr = 15 if @express_del.length >= 2
-  # @price = @price * 0.9 if @price > 30
-
-  # return "Landed" if plane.landed == true
-  # return "In the air" if plane.landed == false
 
 end

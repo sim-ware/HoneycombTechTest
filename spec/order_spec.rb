@@ -36,7 +36,19 @@ describe Order do
     expect(order.price).to eq 50
   end
 
-  it 'discounts the Price of an Order' do
+  it 'discounts the Price of the First Example' do
+    x = Order.new
+    x.clock_number('WNP/SWCL001/010')
+    x.standard_delivery_companies('Disney', 'Discovery', 'Viacom')
+    x.express_delivery_companies('Horse & County')
+    x.pricing
+    x.discounter_a
+    x.discounter_b
+    expect(x.price).to eq 50
+    expect(x.discount_price).to eq 45
+  end
+
+  it 'discounts the Price of the Second Example' do
     order = Order.new
     order.standard_delivery_companies('Disney', 'Discovery', 'Viacom')
     order.express_delivery_companies('Horse & County')
