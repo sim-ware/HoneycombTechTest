@@ -13,6 +13,7 @@ class Order
 
   def standard_delivery_companies(*args)
     @standard_del.push(args)
+    @standard_del = @standard_del[0]
   end
 
 #if i want to not have extra brackets i should loop in the
@@ -23,6 +24,7 @@ class Order
 
   def express_delivery_companies(*args)
     @express_del << args
+    @express_del = @express_del[0]
   end
 
 end
