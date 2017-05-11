@@ -43,4 +43,8 @@ class Order
     @discount_price = @discount_price * 0.9 if @price > 30 && @discount_price != 0
   end
 
+  def show_discount
+    @discount_price
+  end
+
 end

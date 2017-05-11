@@ -45,16 +45,18 @@ describe Order do
     x.discounter_a
     x.discounter_b
     expect(x.price).to eq 50
-    expect(x.discount_price).to eq 45
+    expect(x.show_discount).to eq 45
   end
 
   it 'discounts the Price of the Second Example' do
-    order = Order.new
-    order.standard_delivery_companies('Disney', 'Discovery', 'Viacom')
-    order.express_delivery_companies('Horse & County')
-    order.pricing
-    expect(order.price).to eq 50
-    expect(order.discount_price).to eq 45
+    y = Order.new
+    y.clock_number('ZDW/EOW005/010')
+    y.express_delivery_companies('Disney', 'Discovery', 'Viacom')
+    y.pricing
+    y.discounter_a
+    y.discounter_b
+    expect(y.price).to eq 60
+    expect(y.show_discount).to eq 40.5
   end
 
 end
